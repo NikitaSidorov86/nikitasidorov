@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Grid Template Areas</title>
+	<style type="text/css">
+		#container{
+			display: grid;
+			grid-template-rows: 200px 400px 300px;
+			grid-gap: 15px;
+			
+			grid-template-areas: 
+			"side2 side3 side3 side1 side1" 
+			"side2 main1 main2 main2 side5"
+			"side6 main3 main3 main4 side5"
+
+		}
+
+		body{
+			background-color: black;
+		}
+		#item1{
+			grid-area: side3;
+			background-color: blue;	
+		}
+		#item2{
+			grid-area: side1;
+			background-color: brown;	
+		}
+		#item3{
+			grid-area: main1;
+			background-color: brown;
+				
+		}
+		#item4{
+			grid-area: side2;
+			background-color: red;	
+				
+		}
+		#item5{
+			grid-area: main2;
+			background-color: white;	
+		}
+		#item6{
+			grid-area: main3;
+			background-color: red;	
+
+		}
+		#item7{
+			grid-area: main4;
+			background-color: blue;	
+		}
+		#item8{
+			grid-area: side6;
+			background-color: white;
+		} 
+		#item9{
+			grid-area: side5;
+			background-color: red;	
+		} 
+		
+
+
+
+
+
+	</style>
+
+</head>
+
+<body>
+	<div id="container">
+		<div id="item1">1</div>
+		<div id="item2">2</div>
+		<div id="item3">3</div>
+		<div id="item4">4</div>
+		<div id="item5">5</div>
+		<div id="item6">6</div>
+		<div id="item7">7</div>
+		<div id="item8">8</div>
+		<div id="item9">9</div>
+		
+
+
+	</div>
+
+</body>
+
+</html>
