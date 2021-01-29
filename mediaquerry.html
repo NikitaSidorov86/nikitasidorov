@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Media Query</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+
+		img{
+			width: 200px;
+			height: 200px;
+		}
+
+		body{
+			background-color: red;
+
+		}
+
+		@media all and (max-width: 1000px){
+			body{
+				background-color: blue;
+			}
+			#d1{
+				display: block;
+			}
+			#d2{
+				display: none;
+			}
+			#d3{
+				display: none;
+			}
+
+		}
+
+
+			@media all and (max-width: 800px){
+			body{
+				background-color: green;
+			}
+			#d1{
+				display: none;
+			}
+			#d2{
+				display: block;
+			}
+			#d3{
+				display: none;
+			}
+			
+		}
+
+
+			@media all and (max-width: 600px){
+			body{
+				background-color: purple;
+			}
+			#d1{
+				display: none;
+			}
+			#d2{
+				display: none;
+			}
+			#d3{
+				display: block;
+			}
+			
+		}
+
+
+	</style>
+
+</head>
+
+
+
+<body>
+	
+<div id="d1"><img src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"></div>
+<div id="d2"><img src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=27c09d27ccbd139fd0f7d1cef8f7d41d"></div>
+<div id="d3"><img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/reference_guide/outdoor_cat_risks_ref_guide/1800x1200_outdoor_cat_risks_ref_guide.jpg"></div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get Data From API Source</title>
+</head>
+<style type="text/css">
+
+	body {
+  width: 100%;
+  height: 2000px;
+  margin: 0;
+  padding: 0;
+}
+
+.border {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 12px solid black;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+	body{
+		background-color: gray;
+	}
+	
+	#container {
+    width: 400px;
+    margin: 40px auto 0;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 10px 15px -8px black;
+    border-radius: 7px;
+    text-align: center;
+}
+
+</style>
+<body>
+	<div id="container">
+	<h1>User Information</h1>
+
+	ID:<br>
+	<input type="text" name="" id="id" placeholder="Enter ID from 0 to 10">
+	<br><br>
+
+	Name:<br>
+	<input type="text" name="" id="user" disabled> 
+	<br><br>
+	Email:<br>
+	<input type="email" name="" id="email" disabled>
+	<br><br>
+	Username:<br>
+	<input type="text" name="" id="username" disabled>
+	<br><br>
+	Address:<br>
+	<input type="text" name="" id="addy" disabled>
+	<br><br>
+	Company:<br>
+	<input type="text" name="" id="comp" disabled="">
+	<br><br>
+	Phone:<br>
+	<input type="text" name="" id="phone" disabled>
+	<br><br>
+	Website:<br>
+	<input type="text" name="" id="web" disabled>
+	<br><br>
+
+	<button id="btn">Get Data</button>
+
+	<div class="border"></div>
+	</div>
+
+	<script type="text/javascript">
+		
+		var url = "https://jsonplaceholder.typicode.com/users"
+		var btn = document.getElementById("btn");
+
+		btn.onclick = function(){
+			getData()
+
+			async function getData(){
+				var response = await fetch(url);
+				var resultArray = await response.json();
+				console.log(resultArray)
+
+				var id = document.getElementById("id");
+				var name = document.getElementById("user");
+				var email = document.getElementById("email");
+				var username = document.getElementById("username");
+				var city = document.getElementById("city");
+				var comp = document.getElementById("comp");
+				var phone = document.getElementById("phone");
+				var website = document.getElementById("web");
+
+				name.value = resultArray[id.value-1].name
+
+				email.value = resultArray[id.value-1].email
+
+				username.value = resultArray[id.value-1].username
+
+				addy.value = resultArray[id.value-1].address.city 
+
+				comp.value = resultArray[id.value-1].company.name
+
+				phone.value = resultArray[id.value-1].phone
+
+				website.value = resultArray[id.value-1].website
+			}
+		}
+
+
+
+
+
+	</script>
+
+</body>
+</html>

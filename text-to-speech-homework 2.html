@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text To Speech Homework</title>
+	<style type="text/css">
+		body{
+			background-color: #45badd;
+			text-align: center;
+		}
+		button{
+		 background-color: green; 
+ 	  	 border: none;
+ 		 color: white;
+ 		 padding: 15px 32px;
+ 		 text-align: center;
+ 		 text-decoration: none;
+ 		 display: inline-block;
+ 		 font-size: 16px;
+ 		 margin-left: 10px;
+ 		 font-family: comic sans ms;
+ 		 border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+
+<button id="convo">Click for Conversation</button>
+
+
+<script type="text/javascript">
+	
+
+var voices;
+getAllVoices = function(){
+voices = speechSynthesis.getVoices
+}
+getAllVoices()
+
+convo.onclick = function(){
+var msg = new SpeechSynthesisUtterance("hello honey, how are you")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[6]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("I am good just getting dinner started")
+voices = speechSynthesis.getVoices();
+msg.voice = voices[0]
+speechSynthesis.speak(msg)
+
+
+var msg = new SpeechSynthesisUtterance("what are you making")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[6]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("pasta, the kids asked for it")
+voices = speechSynthesis.getVoices();
+msg.voice = voices[0]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("sounds delicious, wait we don't have kids")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[6]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("i meant dog")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[0]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("oh ok, wait a minute we dont have a dog either")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[6]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("i meant cat")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[0]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("just sit down and eat")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[6]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("ok")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[0]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("i thought you said we were having pasta")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[6]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("i meant hamburgers")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[0]
+speechSynthesis.speak(msg)
+
+var msg = new SpeechSynthesisUtterance("i hate you")
+voices = speechSynthesis.getVoices();
+console.log(voices)
+msg.voice = voices[6]
+speechSynthesis.speak(msg)
+
+
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

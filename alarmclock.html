@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alarm Clock</title>
+</head>
+
+<style type="text/css">
+
+	body{
+		background-color: black;
+	}
+	
+	#container{
+	width: 400px;
+    margin: 40px auto 0;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: gray;
+    box-shadow: 0 10px 15px -8px #111;
+    border-radius: 7px;
+    text-align: center;
+    margin-top: 250px;
+    font-family: sans-serif;
+	}
+#set_alarm{
+	box-shadow:inset 0px 1px 0px 0px #9acc85;
+	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+	background-color:#74ad5a;
+	border:1px solid #3b6e22;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+}
+
+#stop_alarm{
+	box-shadow:inset 0px 1px 0px 0px #9acc85;
+	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+	background-color:#74ad5a;
+	border:1px solid #3b6e22;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+}
+
+}
+
+
+
+</style>
+<body>
+
+	<div id="container">
+	<h1>Alarm Clock</h1>
+	<h2 id="clock">00:00:00</h2>
+	Set Alarm: <input type="time" name="" id="alarm">
+	<br>
+	<br>
+	<button id="set_alarm">Set Alarm</button>
+	<button id="stop_alarm">Stop Alarm</button>
+
+	</div>
+
+
+
+
+
+	<script type="text/javascript">
+
+	
+
+		alarm_time = ""
+
+
+		clocking = function(){
+		d = (new Date()).toString()
+		//console.log(d)
+		current_time = d.slice(16,24)
+		//console.log(current_time)
+		clock.innerHTML = current_time
+
+		if(alarm_time == current_time.slice(0,5)){
+	console.log("Alarm goes off")
+	alarm_sound = new Audio("beep.wav")
+	alarm_sound.play()
+}
+			}
+
+			start_clocking = setInterval(clocking, 1000)
+
+
+			set_alarm.onclick = function(){
+				console.log(alarm.value)
+				alarm_time = alarm.value
+				document.body.style.backgroundColor = "green"
+			 document.getElementById("set_alarm").style.color = "red";
+
+			 set_alarm.style.background = "red"
+
+
+			}
+
+			stop_alarm.onclick = function(){
+					document.body.style.backgroundColor = "black"
+					alarm_time = ""
+
+					set_alarm.style.backgroundColor = "green"
+			}
+
+		
+
+
+
+	</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

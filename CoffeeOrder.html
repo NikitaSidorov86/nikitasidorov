@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coffee Order</title>
+</head>
+<style type="text/css">
+body{
+    background: skyblue;
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    text-align: center;
+  }
+
+  #btn{
+     width: 150px;
+  height: 40px;
+  background: #white;
+  border-radius: 999px;
+  border: black;
+  }
+  </style>
+<body>
+
+
+<center>
+<b><h1>Coffee Order</h1></b>
+Type of Coffee:<br>
+<input type="radio" name="" id="regular"> Regular <br>
+<input type="radio" name="" id="hazelnut"> Hazelnut<br>
+<input type="radio" name="" id="vanilla"> Vanilla <br>
+<input type="radio" name="" id="colombia"> Colombia
+<br>
+<br>
+Add-Ons <br>
+<input type="Checkbox" name="" id="sweetner"> Sweetner <br>
+<input type="Checkbox" name="" id="dairy"> Dairy <br>
+<br>
+Size <br>
+<select id="size">
+  <option>8oz</option>
+  <option>16oz</option>
+  <option>24oz</option>
+</select>
+<br>
+<br>
+<button id="btn">Submit</button>
+<p id="result"></p>
+</center>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+
+
+    $("#btn").on("click", function(){
+      $("#result").html("")
+        type = ""
+        AddOns = ""
+        size = ""
+        add = ""
+
+      if($("#regular").is(":checked")){
+           type += "regular <br>"
+      }
+      if($("#hazelnut").is(":checked")){
+            type += "hazelnut <br>"
+      }
+      if($("#vanilla").is(":checked")){
+            type += "vanilla <br>"
+      }
+
+      if($("#colombia").is(":checked")){
+            type += "colombia <br>"
+      }
+
+      $("#result").append(type)
+
+
+      if($("#sweetner").is(":checked")){
+           AddOns += " sweetner"
+
+        }
+
+         if($("#dairy").is(":checked")){
+           AddOns += " dairy"
+
+        }
+      
+      $("#result").append("Add-Ons are " + add)
+
+size = $("#size").val()
+$("#result").append("<br> Size selected is " + size)
+
+    })
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

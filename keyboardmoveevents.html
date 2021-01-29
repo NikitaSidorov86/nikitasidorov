@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Keyboard Move Events</title>
+	<style type="text/css">
+		#box{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: relative;
+	
+	</style>
+</head>
+<body>
+	<h1>Keyboard Move Events</h1>
+
+	<div id="box"></div>
+
+	
+
+	<script type="text/javascript">
+		move_x = 0
+		move_y = 0
+
+		document.body.onkeydown = function(e){
+		console.log(e.which)
+		if(e.which == 39){
+			move_x += 10
+			box.style.left = move_x + "px"
+		}
+
+		if(e.which == 37){
+			move_x -= 10
+			box.style.left = move_x + "px"
+		}
+
+		if(e.which == 38){
+			move_y -= 10
+			box.style.top = move_y + "px"
+		}
+
+			if(e.which == 40){
+			move_y += 10
+			box.style.top = move_y + "px"
+		}
+
+		if(move_x > 200){
+			box.style.backgroundColor = "black"
+		}else{
+			box.style.backgroundColor = "red"
+		}
+
+			if(move_y > 200){
+			box.style.backgroundColor = "black"
+			document.getElementById('box').style.borderRadius = "50%";
+		}else{
+			box.style.backgroundColor = "red"
+			document.getElementById('box').style.borderRadius = "0%";
+		}
+		
+
+		}
+
+
+
+	</script>
+
+</body>
+</html>
