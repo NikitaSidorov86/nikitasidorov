@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+	<style type="text/css">
+		body{
+			background-color: black;
+			color: white;
+		}
+		table{
+			border: 1px solid white;
+		}
+		td{
+			border: 1px solid white;
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			font-size: large;
+			font-size: 75px;
+		}
+		#container{
+			display: flex;
+			justify-content: center;
+			
+		}
+		#score_y{
+			width: 200px;
+			height: 200px;
+			border: 3px solid white;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+		#score_x{
+			width: 200px;
+			height: 200px;
+			border: 3px solid white;
+			display: flex;
+		}
+
+		#container_x, #container_y{
+			width: 220px;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<center><h1>Tic-Tac-Toe</h1></center>
+
+<center>
+<table>
+	
+<tr>
+	<td id="cell1" ></td>
+	<td id="cell2" ></td>
+	<td id="cell3" ></td>
+</tr>
+	
+<tr>
+	<td id="cell4"></td>
+	<td id="cell5"></td>
+	<td id="cell6"></td>
+</tr>
+
+<tr>
+	<td id="cell7"></td>
+	<td id="cell8"></td>
+	<td id="cell9"></td>
+</tr>
+
+
+</table>
+<br><br>
+<div id="buttons">
+<button id="player_x">Player X</button>
+<button id="player_y">Player O</button>
+<button id="clearb">Clear Board</button>
+</div>
+<br><br>
+<div id="container">
+	<div id="container_x">
+ <fieldset id="score_x">
+ 	<legend>Win Keeper X</legend>
+ </fieldset>
+</div>
+
+ <div id="container_y">
+ <fieldset id="score_y">
+ 	<legend>Win Keeper O</legend>
+ </fieldset>
+</div>
+</div>
+
+</center>
+
+<script type="text/javascript">
+
+	var	cell1 = document.getElementById("cell1")
+	var cell2 = document.getElementById("cell2")
+	var cell3 = document.getElementById("cell3")
+	var cell4 = document.getElementById("cell4")
+	var cell5 = document.getElementById("cell5")
+	var cell6 = document.getElementById("cell6")
+	var cell7 = document.getElementById("cell7")
+	var cell8 = document.getElementById("cell8")
+	var cell9 = document.getElementById("cell9")
+
+
+	document.getElementById('buttons').addEventListener('click', function(evt) {
+		document.createElement("p");
+		var target = evt.target;
+		if(target.id === 'player_x'){
+			cell1.onclick = function(){
+				cell1.innerHTML = "x"
+				winner()
+			}
+			cell2.onclick = function(){
+				cell2.innerHTML = "x"
+				winner()
+			}
+			cell3.onclick = function(){
+				cell3.innerHTML = "x"
+				winner()
+			}
+			cell4.onclick = function(){
+				cell4.innerHTML = "x"
+				winner()
+			}
+			cell5.onclick = function(){
+				cell5.innerHTML = "x"
+				winner()
+			}
+			cell6.onclick = function(){
+				cell6.innerHTML = "x"
+				winner()
+			}
+			cell7.onclick = function(){
+				cell7.innerHTML = "x"
+				winner()
+			}
+			cell8.onclick = function(){
+				cell8.innerHTML = "x"
+				winner()
+			}
+			cell9.onclick = function(){
+				cell9.innerHTML = "x"
+				winner()
+			}
+		} if (target.id === 'player_y'){
+			cell1.onclick = function(){
+			cell1.innerHTML = "o"
+			winner()
+			}
+			cell2.onclick = function(){
+			cell2.innerHTML = "o"
+			winner()
+			}
+			cell3.onclick = function(){
+			cell3.innerHTML = "o"
+			winner()
+			}
+			cell4.onclick = function(){
+			cell4.innerHTML = "o"
+			winner()
+			}
+			cell5.onclick = function(){
+			cell5.innerHTML = "o"
+			winner()
+			}
+			cell6.onclick = function(){
+			cell6.innerHTML = "o"
+			winner()
+			}
+			cell7.onclick = function(){
+			cell7.innerHTML = "o"
+			winner()
+			}
+			cell8.onclick = function(){
+			cell8.innerHTML = "o"
+			winner()
+			}
+			cell9.onclick = function(){
+			cell9.innerHTML = "o"
+			winner()
+			}
+		} 
+	}, false);
+
+	function winner(){
+
+		if(cell1.innerHTML == cell2.innerHTML && cell2.innerHTML == cell3.innerHTML && (cell3.innerHTML == "x")){
+		score_x.innerHTML += "W";
+		alert("Winner");
+		cell1.style.color = "green";
+		cell2.style.color = "green";
+		cell3.style.color = "green";
+	}else if(cell1.innerHTML == cell2.innerHTML && cell2.innerHTML == cell3.innerHTML && (cell3.innerHTML == "o")){
+			alert("winner");
+			score_y.innerHTML += "W"
+			cell1.style.color = "green";
+			cell2.style.color = "green";
+			cell3.style.color = "green";
+
+		}
+
+	if(cell4.innerHTML == cell5.innerHTML && cell5.innerHTML == cell6.innerHTML && (cell6.innerHTML == "x")){
+		alert("Winner");
+		score_x.innerHTML += "W";
+		cell4.style.color = "green";
+		cell5.style.color = "green";
+		cell6.style.color = "green";
+	}else if(cell4.innerHTML == cell5.innerHTML && cell5.innerHTML == cell6.innerHTML && (cell6.innerHTML == "o")){
+		score_y.innerHTML += "W";
+		alert("Winner");
+		cell4.style.color = "green";
+		cell5.style.color = "green";
+		cell6.style.color = "green";
+
+	}
+
+
+
+	if(cell7.innerHTML == cell8.innerHTML && cell8.innerHTML == cell9.innerHTML && (cell9.innerHTML == "x")){
+		alert("Winner");
+		score_x.innerHTML += "W"
+		cell7.style.color = "green";
+		cell8.style.color = "green";
+		cell9.style.color = "green";
+	}else if(cell7.innerHTML == cell8.innerHTML && cell8.innerHTML == cell9.innerHTML && (cell9.innerHTML == "o")){
+		alert("Winner")
+		score_y.innerHTML = "W"
+		cell7.style.color = "green";
+		cell8.style.color = "green";
+		cell9.style.color = "green";
+	}
+
+
+
+
+	if(cell1.innerHTML == cell5.innerHTML && cell5.innerHTML == cell9.innerHTML && (cell9.innerHTML == "x")){
+		score_x.innerHTML += "W";
+		cell1.style.color = "green";
+		cell5.style.color = "green";
+		cell9.style.color = "green";
+	}else if(cell1.innerHTML == cell5.innerHTML && cell5.innerHTML == cell9.innerHTML && (cell9.innerHTML == "o")){
+		score_y.innerHTML += "W";
+		cell1.style.color = "green";
+		cell5.style.color = "green";
+		cell9.style.color = "green";
+	}
+
+
+
+
+
+	if(cell3.innerHTML == cell5.innerHTML && cell5.innerHTML == cell7.innerHTML && (cell7.innerHTML == "x")){
+		alert("Winner");
+		cell3.style.color = "green";
+		cell5.style.color = "green";
+		cell7.style.color = "green";
+	}else if(cell3.innerHTML == cell5.innerHTML && cell5.innerHTML == cell7.innerHTML && (cell7.innerHTML == "o")){
+		alert("Winner");
+		score_y.innerHTML += "W";
+		cell3.style.color = "green";
+		cell5.style.color = "green";
+		cell7.style.color = "green";
+	}
+
+	if(cell2.innerHTML == cell5.innerHTML && cell5.innerHTML == cell8.innerHTML && (cell8.innerHTML == "x")){
+		alert("Winner");
+		cell2.style.color = "green";
+		cell5.style.color = "green";
+		cell8.style.color = "green";
+	}else if(cell2.innerHTML == cell5.innerHTML && cell5.innerHTML == cell8.innerHTML && (cell8.innerHTML == "o")){
+		alert("Winner");
+		score_y.innerHTML += "W";
+		cell2.style.color = "green";
+		cell5.style.color = "green";
+		cell8.style.color = "green";
+	}
+
+	if(cell1.innerHTML == cell4.innerHTML && cell4.innerHTML == cell7.innerHTML && (cell7.innerHTML == "x")){
+		alert("Winner");
+		cell1.style.color = "green";
+		cell4.style.color = "green";
+		cell7.style.color = "green";
+}else if(cell1.innerHTML == cell4.innerHTML && cell4.innerHTML == cell7.innerHTML && (cell7.innerHTML == "o")){
+	alert("Winner");
+	score_y.innerHTML += "W";
+		cell1.style.color = "green";
+		cell4.style.color = "green";
+		cell7.style.color = "green";
+}
+if(cell3.innerHTML == cell6.innerHTML && cell6.innerHTML == cell9.innerHTML && (cell9.innerHTML == "x")){
+		alert("Winner");
+		cell3.style.color = "green";
+		cell6.style.color = "green";
+		cell9.style.color = "green";
+	}else if(cell3.innerHTML == cell6.innerHTML && cell6.innerHTML == cell9.innerHTML && (cell9.innerHTML == "o")){
+		alert("Winner");
+		score_y.innerHTML += "W";
+		cell3.style.color = "green";
+		cell6.style.color = "green";
+		cell9.style.color = "green";
+	}
+}
+
+clearb.onclick = function(){
+	cell1.innerHTML = "";
+	cell1.style.color = "white";
+
+	cell2.innerHTML = "";
+	cell2.style.color = "white";
+
+	cell3.innerHTML = "";
+	cell3.style.color = "white";
+
+	cell4.innerHTML = "";
+	cell4.style.color = "white";
+
+	cell5.innerHTML = "";
+	cell5.style.color = "white";
+
+	cell6.innerHTML = "";
+	cell6.style.color = "white";
+
+	cell7.innerHTML = "";
+	cell7.style.color = "white";
+
+	cell8.innerHTML = "";
+	cell8.style.color = "white";
+
+	cell9.innerHTML = "";
+	cell9.style.color = "white";
+}
+
+
+
+
+
+
+	
+	
+	
+	
+
+</script>
+
+
+
+
+
+</body>
+</html>
