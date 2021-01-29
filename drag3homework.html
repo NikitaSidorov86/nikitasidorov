@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recycle This!</title>
+	<style type="text/css">
+    	h1{
+    	font-family: FreeMono, monospace;
+    	color: #20C20E;
+    	}
+    	pre{
+    		color: #20C20E;
+    	}
+		body{
+			background-color: black;
+		}
+		img{
+			width: 200px;
+			height: 200px;
+			border: 5px solid #20C20E;
+			margin-left: 5px;
+		}
+
+		#bottles{
+			transform: rotate(20deg);
+			margin-left: 30px;
+		}
+		#wrappers{
+			transform: rotate(-20deg);
+		}
+		#green-paint{
+			transform: rotate(32deg);
+		}
+		#red-paint{
+			transform: rotate(-24deg);
+		}
+		#phones{
+			transform: rotate(29deg);
+		}
+		#calculators{
+			transform: rotate(-27deg);
+		}
+		fieldset{
+			width: 50%;
+			color: #20C20E;
+			display: inline-block;
+			box-sizing: border-box;
+		}
+		#score1{
+			width: 200px;
+			height: 200px;
+			border: 2px solid white;
+			display: inline-block;
+
+		}
+	</style>
+</head>
+<body>
+
+<center><h1>Recycle This!</h1></center>
+
+
+<center>
+	<div id="score1"></div>
+<img src="https://images.homedepot-static.com/productImages/5438b7dc-b45e-46e8-9237-a41eb68cf483/svn/carlisle-indoor-trash-cans-34104424-64_1000.jpg" id="plasticbin" data-r="1" draggable="true">
+<img src="https://images.homedepot-static.com/productImages/0c77318c-59d8-450e-8086-a7f41b884134/svn/carlisle-indoor-trash-cans-34105589-64_1000.jpg" id="paintbin" data-r="2" draggable="true">
+<img src="https://images.homedepot-static.com/productImages/33ed3f7b-4055-43ff-92a6-2f91147c976c/svn/carlisle-indoor-trash-cans-34102009-64_1000.jpg" id="ebin" data-r="3" draggable="true">
+
+<pre> 	      Plastic                      Paint                    Electronics</pre>
+</center>
+<center>
+<br>
+<br>
+<br>
+<br>
+<img src="https://www.packari.com/out/pictures/master/product/1/902104_s00020.jpg" id="bottles" data-r="1" draggable="true">
+<img src="https://thumbs.dreamstime.com/b/candy-striped-wrapper-d-rendering-white-background-122899462.jpg" id="wrappera" data-r="1" draggable="true">
+
+<img src="https://library.kissclipart.com/20180914/yce/kissclipart-green-paint-can-clipart-paint-clip-art-dd5d28187981e97e.png" id="green-paint" data-r="2" draggable="true">
+<img src="https://s.pngkit.com/png/small/15-155839_paint-bucket-png-bucket-of-red-paint.png" id="red-paint" data-r="2" draggable="true">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSStgolyFJ7O5H--ss-hv8qaW6ZK0Y4_sEQ1g&usqp=CAU" id="phones" data-r="3" draggable="true">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTgc6Pk9Yk6iLkcAa4TZcclRwI2TvMShP5ejQ&usqp=CAU" id="calculators" data-r="3" draggable="true">
+</center>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<center>
+<fieldset>
+	<legend>Plastic Items</legend>
+	<ol id="plist"></ol>
+</fieldset>
+<fieldset>
+	<legend>Paint Cans</legend>
+	<ol id="paintitems"></ol>
+</fieldset>
+<fieldset>
+	<legend>Electronic Items</legend>
+	<ol id="elist"></ol>
+</fieldset>
+</center>
+
+
+<script type="text/javascript">
+	
+var	plasticbin = document.getElementById("plasticbin");
+var	paintbin = document.getElementById("paintbin");
+var	ebin = document.getElementById("ebin");
+var plist = document.getElementById("plist");
+var paintitems = document.getElementById("paintitems");
+var elist = document.getElementById("elist");
+
+var voices;
+getAllVoices = function(){
+voices = speechSynthesis.getVoices
+}
+getAllVoices()
+
+this.ondragstart = function dragstart(e){
+	e.dataTransfer.setData("Text", e.target.id);
+}
+
+this.ondragover = function dragover(e){
+	e.preventDefault();
+}
+
+plasticbin.ondrop = function drop(e){
+	e.preventDefault();
+	var data = e.dataTransfer.getData("Text");
+	var dropdata = document.getElementById(data);
+
+if(dropdata.getAttribute("data-r") == "1"){
+	plist.innerHTML += "<li>" + data + "</li>";
+	dropdata.parentNode.removeChild(dropdata);
+	var msg = new SpeechSynthesisUtterance("correct" + data + "does goes into the plastic bin")
+	voices = speechSynthesis.getVoices();
+	console.log(voices)
+	msg.voice = voices[0]
+	speechSynthesis.speak(msg)
+	}else{
+		var msg = new SpeechSynthesisUtterance("wrong" + data + "does not go into the plastic bin")
+		speechSynthesis.speak(msg)
+		
+	}
+}
+
+paintbin.ondrop = function drop(e){
+	e.preventDefault();
+	var data = e.dataTransfer.getData("Text");
+	var dropdata = document.getElementById(data);
+
+if(dropdata.getAttribute("data-r") == "2"){
+	paintitems.innerHTML += "<li>" + data + "</li>";
+	dropdata.parentNode.removeChild(dropdata);
+	var msg = new SpeechSynthesisUtterance("correct" + data + "does goes into the paint bin")
+				speechSynthesis.speak(msg)
+	}else{
+		var msg = new SpeechSynthesisUtterance("wrong" + data + "does not go into the paint bin")
+		speechSynthesis.speak(msg)
+	}
+}
+
+ebin.ondrop = function drop(e){
+	e.preventDefault();
+	var data = e.dataTransfer.getData("Text");
+	var dropdata = document.getElementById(data);
+
+if(dropdata.getAttribute("data-r") == "3"){
+	elist.innerHTML += "<li>" + data + "</li>";
+	dropdata.parentNode.removeChild(dropdata);
+	var msg = new SpeechSynthesisUtterance("correct" + data + "does goes into the electronics bin")
+				speechSynthesis.speak(msg)
+	}else{
+		var msg = new SpeechSynthesisUtterance("wrong" + data + "do not go into the electornics bin")
+		speechSynthesis.speak(msg)
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
